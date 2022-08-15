@@ -10,7 +10,7 @@ public class Main {
 
         //Get input test.txt file
         FileEntryParser fileEntryParser = new FileEntryParser();
-        fileEntryParser.setFilePath("D:\\test.txt");
+        fileEntryParser.setFilePath("test.txt");
         fileEntryParser.parse();
 
         //Map data to models
@@ -21,8 +21,10 @@ public class Main {
         //create a playground
         TondeuseMovementController tondeuseMovementController = new TondeuseMovementController(terrain , tondeuseList, tonduseMovements);
 
-        //Print results
+        //execute the movements
         tondeuseMovementController.runMovements();
+
+        //Print results
         for (Tondeuse tondeuse : tondeuseList) {
             System.out.println(tondeuse.toString());
         }

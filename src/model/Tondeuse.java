@@ -1,7 +1,7 @@
 package model;
 
 public class Tondeuse implements IMobileElement {
-    private Position position;
+    private final Position position;
 
     private char orientation;
 
@@ -23,10 +23,10 @@ public class Tondeuse implements IMobileElement {
     @Override
     public void move() {
         switch (this.orientation) {
-            case 'N' -> this.position.setY(this.position.getY() + 1);
-            case 'E' -> this.position.setX(this.position.getX() + 1);
-            case 'S' -> this.position.setY(this.position.getY() - 1);
-            case 'W' -> this.position.setX(this.position.getX() - 1);
+            case 'N' -> this.moveUp();
+            case 'E' -> this.moveRight();
+            case 'S' -> this.moveDown();
+            case 'W' -> this.moveLeft();
         }
 
     }
@@ -49,6 +49,25 @@ public class Tondeuse implements IMobileElement {
             case 'S' -> this.orientation = 'E';
             case 'W' -> this.orientation = 'S';
         }
+    }
+
+    public void moveUp() {
+        this.position.setY(this.position.getY() + 1);
+    }
+
+
+    public void moveDown() {
+        this.position.setY(this.position.getY() - 1);
+    }
+
+
+    public void moveLeft() {
+        this.position.setX(this.position.getX() - 1);
+    }
+
+
+    public void moveRight() {
+        this.position.setX(this.position.getX() + 1);
     }
 
     @Override
